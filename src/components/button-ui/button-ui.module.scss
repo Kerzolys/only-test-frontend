@@ -1,0 +1,38 @@
+.button {
+    inline-size: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border-color: #42567A80;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 18.75px;
+        left: 21.25px;
+        inline-size: 8.5px;
+        aspect-ratio: 1/1;
+        // block-size: 6.25px;
+        border-block-end: 2px solid #42567A;
+        border-inline-start: 2px solid #42567A;
+        transform: rotate(45deg);
+    }
+    &_forward::before {
+        content: '';
+        transform: rotate(-135deg);
+        right: 21.25px;
+        left: auto;
+    }
+    @media screen and (max-width:768px) {
+        inline-size: 25px;
+        &::before {
+            inline-size: 6.25px;
+            top: 15.38px;
+            left: 15.62px;
+        }
+        &_forward::before {
+            top: 15.38px;
+            right: 15.62px;
+            left: auto;
+        }
+    }
+}

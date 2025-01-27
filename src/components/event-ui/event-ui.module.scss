@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: start;
+    max-block-size: 135px;
+    max-inline-size: 400px;
+    &__year {
+        font-size: 25px;
+        line-height: 1.2;
+        margin: 0;
+        color: #3877EE;
+        font-family: 'Bebas Neue';
+    }
+    &__description {
+        color: #42567A;
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: left;
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+            line-height: 1.45;
+            max-width: 280px;
+        }
+    }
+ 
+}

@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-inline-start: 120px;
+  &__counter {
+    font-size: 14px;
+    line-height: 1.295;
+    color: #42567a;
+    margin: 0;
+  }
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    gap: 10px;
+    margin-block-start: -20px;
+  }
+}

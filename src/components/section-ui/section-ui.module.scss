@@ -1,0 +1,58 @@
+.circle {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #42567a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.circle:hover,
+.circle_active {
+  background-color: transparent;
+  width: 56px;
+  height: 56px;
+  border: 1px solid #303e5880;
+  background-color: #f4f5f9;
+  z-index: 111;
+  .index {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+  }
+}
+
+.index {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  font-weight: bold;
+  color: #42567a;
+  &_active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  color: #42567a;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  left: 50%;
+  transform: translate(50%, -20%);
+}
+
+.title_active {
+  opacity: 1;
+  visibility: visible;
+}

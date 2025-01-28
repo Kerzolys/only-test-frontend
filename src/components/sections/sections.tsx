@@ -16,6 +16,7 @@ type SectionsProps = {
   onSectionClick: (index: number) => void;
   items: TItem[];
   rotationAngle: number;
+  isMobile?: boolean;
 };
 
 export const Sections: React.FC<SectionsProps> = ({
@@ -23,6 +24,7 @@ export const Sections: React.FC<SectionsProps> = ({
   onSectionClick,
   items,
   rotationAngle,
+  isMobile,
 }) => {
   const sections = useStore((state) => state.sections);
   const radius = 265;
@@ -32,37 +34,55 @@ export const Sections: React.FC<SectionsProps> = ({
   };
 
   return (
-    <div
-      className={styles.container}
-      style={{
-        transform: `rotate(${rotationAngle}rad)`,
-      }}
-    >
-      {sections.map((section, index) => {
-        const { x, y } = items[index];
-        const isActive = activeSection === index;
-        return (
-          <div
-            key={section.id}
-            className={`${styles.wrapper} ${
-              activeSection === index ? styles.wrapper_active : ""
-            }`}
-            style={{
-              transform: `translate(-50%, -50%) rotate(${-rotationAngle}rad)`,
-              left: `${x + radius}px`,
-              top: `${y + radius}px`,
-            }}
-            onClick={() => handleClick(index)}
-          >
-            <SectionUI
-              section={section}
-              isActive={isActive}
-              onClick={() => handleClick(index)}
-              index={index}
-            />
-          </div>
-        );
-      })}
-    </div>
+    <>
+      {!isMobile ? (
+        <div
+          className={styles.container}
+          style={{
+            transform: `rotate(${rotationAngle}rad)`,
+          }}
+        >
+          {sections.map((section, index) => {
+            const { x, y } = items[index];
+            const isActive = activeSection === index;
+            return (
+              <div
+                key={section.id}
+                className={`${styles.wrapper} ${
+                  activeSection === index ? styles.wrapper_active : ""
+                }`}
+                style={{
+                  transform: `translate(-50%, -50%) rotate(${-rotationAngle}rad)`,
+                  left: `${x + radius}px`,
+                  top: `${y + radius}px`,
+                }}
+                onClick={() => handleClick(index)}
+              >
+                <SectionUI
+                  section={section}
+                  isActive={isActive}
+                  onClick={() => handleClick(index)}
+                  index={index}
+                />
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className={styles.container_mobile}>
+          {sections.map((section) => {
+            return (
+              <SectionUI
+                key={section.id}
+                section={section}
+                isActive={activeSection === sections.indexOf(section)}
+                onClick={() => handleClick(sections.indexOf(section))}
+                index={sections.indexOf(section)}
+              />
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 };

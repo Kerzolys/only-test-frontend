@@ -125,7 +125,7 @@ function App() {
         Исторические <br />
         даты
       </h1>
-      <Sections
+      {/* <Sections
         activeSection={activeSection}
         onSectionClick={handleSectionClick}
         items={items}
@@ -134,9 +134,13 @@ function App() {
       <h2 className="years">
         {beginning}
         <span className="years_accent"> {ending}</span>
-      </h2>
+      </h2> */}
       {isMobile ? (
         <>
+          <h2 className="years">
+            {beginning}
+            <span className="years_accent"> {ending}</span>
+          </h2>
           <Karousel yearsData={years} isMobile={isMobile} />
           <ButtonsBlock
             yearsData={yearsData}
@@ -144,9 +148,26 @@ function App() {
             handlePreviousClick={handlePreviousYears}
             handleNextClick={handleNextYears}
           />
+          <Sections
+            activeSection={activeSection}
+            onSectionClick={handleSectionClick}
+            items={items}
+            rotationAngle={rotationAngle}
+            isMobile={isMobile}
+          />
         </>
       ) : (
         <>
+          <Sections
+            activeSection={activeSection}
+            onSectionClick={handleSectionClick}
+            items={items}
+            rotationAngle={rotationAngle}
+          />
+          <h2 className="years">
+            {beginning}
+            <span className="years_accent"> {ending}</span>
+          </h2>
           <ButtonsBlock
             yearsData={yearsData}
             yearIndex={yearIndex}

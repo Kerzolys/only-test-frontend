@@ -7,9 +7,16 @@
   margin: -100px auto;
   transition: transform 0.5s ease;
   @media screen and (max-width: 768px) {
-    display: none;
+    &_mobile {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      margin-block-start: -37.76px;
+    }
   }
 }
+
 .wrapper {
   position: absolute;
   transition: transform 0.3s ease;

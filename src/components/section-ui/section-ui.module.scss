@@ -9,6 +9,10 @@
   transition: background-color 0.3s ease;
   cursor: pointer;
   transition: width 0.3s ease, height 0.3s ease;
+  @media screen and (max-width: 768px) {
+    background-color: #42567A;
+    opacity: 40%;
+  }
 }
 
 .circle:hover,
@@ -19,10 +23,21 @@
   border: 1px solid #303e5880;
   background-color: #f4f5f9;
   z-index: 111;
+
   .index {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease;
+  }
+  @media screen and (max-width: 768px) {
+    background-color: #42567A;
+    opacity: 100%;
+    width: 6px;
+    height: 6px;
+
+    .index {
+      display: none;
+    }
   }
 }
 
@@ -55,4 +70,7 @@
 .title_active {
   opacity: 1;
   visibility: visible;
+  @media screen and (max-width:768px){
+    display: none;
+  }
 }

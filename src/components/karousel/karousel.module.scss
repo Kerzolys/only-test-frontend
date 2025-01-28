@@ -7,7 +7,6 @@
   padding-inline: 0px;
   @media screen and (max-width: 768px) {
     gap: 25px;
-    // margin-bottom: 78px;
   }
 }
 
@@ -18,16 +17,6 @@
   @media screen and (max-width:768px){
     height: 235px;
   }
-}
-
-.customPagination {
-  position: absolute !important;
-  margin-block-start: 103px ;
-//   top: 103px !important;
-  left: 50%; /* Центрирование */
-  transform: translateX(-50%);
-  width: 86px !important;
-  z-index: 10; /* Убедись, что элемент находится выше слайдера */
 }
 
 .swiperSlide {
